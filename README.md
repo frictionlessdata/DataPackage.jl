@@ -27,3 +27,10 @@ A library for working with [Data Packages](http://specs.frictionlessdata.io/data
 Please visit [our wiki](https://github.com/frictionlessdata/datapackage-jl/wiki) for a list of related projects that we are tracking, and suggest use cases there or as enhancement [issues](https://github.com/frictionlessdata/datapackage-jl/issues).
 
 See `examples` folder and unit tests in [runtests.jl](test/runtests.jl) for current usage.
+
+Running tests:
+```
+$ julia -L ../tableschema-jl/src/TableSchema.jl -L src/DataPackage.jl test/runtests.jl
+```
+
+See [Packages](https://docs.julialang.org/en/stable/manual/packages/) doc for local installation.
