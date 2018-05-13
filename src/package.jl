@@ -7,13 +7,13 @@ mutable struct Package
     descriptor::Dict
     strict::Bool
     errors::Array{PackageError}
-    resources::Array{Schema}
+    resources::Array{Resource}
 
     function Package(d::Dict, strict::Bool=false)
         resources = []
         if haskey(d, "resources")
             for r in d["resources"]
-                t = Schema(r, strict)
+                t = Resource(r, strict)
                 push!(resources, t)
             end
         end
