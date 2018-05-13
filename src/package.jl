@@ -7,9 +7,17 @@ mutable struct Package
     descriptor::Dict
     strict::Bool
     errors::Array{PackageError}
+    resources::Array{Schema}
 
     function Package(d::Dict, strict::Bool=false)
-        new(d, strict, [])
+        resources = []
+        if haskey(d, "resources")
+            for r in d["resources"]
+                t = Schema(r, strict)
+                push!(resources, t)
+            end
+        end
+        new(d, strict, [], resources)
     end
 
     Package(filename::String, strict::Bool=false) =

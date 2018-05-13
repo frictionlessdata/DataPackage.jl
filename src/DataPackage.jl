@@ -15,6 +15,9 @@ export PackageError
 
 using JSON
 
+using TableSchema
+import TableSchema: Schema
+
 include("exceptions.jl")
 include("package.jl")
 
