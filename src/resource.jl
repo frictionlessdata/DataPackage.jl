@@ -29,9 +29,11 @@ mutable struct Resource
     end
 end
 
+get_table(r::Resource) = Table(r.path, r.schema)
+
 function read(r::Resource)
     if r.profile == "tabular-data-resource"
-        t = Table(r.path, r.schema)
+        t = get_table(r)
         TableSchema.read(t)
     else
         throw(ErrorException("Not supported"))
