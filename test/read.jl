@@ -11,4 +11,11 @@
         @test length(p.resources[1].schema.fields) == 2
     end
 
+    @testset "Read data from package" begin
+        p = Package("data/cities/datapackage.json")
+        r = get_resource(p, "cities")
+        data = read(r)
+        @test data[2,1] == "London"
+    end
+
 end

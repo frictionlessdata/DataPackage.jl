@@ -26,3 +26,6 @@ mutable struct Package
     Package(strict::Bool=false) =
         Package(Dict(), strict=strict)
 end
+
+get_resource(p::Package, name::String) =
+    [ r for r in p.resources if r.name == name ][1]
