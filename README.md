@@ -7,7 +7,9 @@
 
 [![Julia Pkg](http://pkg.julialang.org/badges/JSON_0.6.svg)](http://pkg.julialang.org/?pkg=datapackage&ver=0.6)
 
-A library for working with [Data Packages](http://specs.frictionlessdata.io/data-package/) in Julia:
+A library for working with [Data Packages](http://specs.frictionlessdata.io/data-package/) in Julia.
+
+Initially this package is primarily targeted and depends on [TableSchema.jl](https://github.com/frictionlessdata/tableschema-jl), where you can find the common [Design Document](https://github.com/loleg/TableSchema.jl/blob/master/DESIGN.md) for these libraries. Support for other types of data packages is to follow.
 
 ## Features
 
@@ -17,7 +19,6 @@ A library for working with [Data Packages](http://specs.frictionlessdata.io/data
  - `validate` function for validating data package descriptors
  - `infer` function for inferring data package descriptors
 
-
 ### Status
 
 :construction: This package is pre-release and under heavy development. Please visit the [issues page](https://github.com/frictionlessdata/datapackage-jl/issues) to contribute and make suggestions. For questions that need to a real time response, reach out via [Gitter](https://gitter.im/frictionlessdata/chat). Thanks! :construction:
@@ -26,7 +27,11 @@ A library for working with [Data Packages](http://specs.frictionlessdata.io/data
 
 Please visit [our wiki](https://github.com/frictionlessdata/datapackage-jl/wiki) for a list of related projects that we are tracking, and suggest use cases there or as enhancement [issues](https://github.com/frictionlessdata/datapackage-jl/issues).
 
-See `examples` folder and unit tests in [runtests.jl](test/runtests.jl) for current usage.
+See `examples` folder and unit tests in [runtests.jl](test/runtests.jl) for current usage, e.g.:
+
+```
+$ julia examples/basic.jl
+```
 
 Running tests:
 ```
