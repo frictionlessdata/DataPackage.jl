@@ -27,6 +27,19 @@ mutable struct Resource
 
         new(d, strict, name, path, profile, dialect, schema, [])
     end
+
+    function Resource(path::String, strict::Bool=false, name::String=nothing)
+        if name == nothing
+            name = path.split('/')[-1]
+        end
+        t = Table(path)
+        tr = TableSchema.read(t, cast=false)
+        s = Schema()
+        TableSchema.infer(s, tr, t.headers)
+        new(
+            Dict(), strict, name, path, "tabular-data-resource", Dict(), s, []
+        )
+    end
 end
 
 get_table(r::Resource) = Table(r.path, r.schema)

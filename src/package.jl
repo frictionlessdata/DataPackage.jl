@@ -24,8 +24,11 @@ mutable struct Package
         Package(JSON.parsefile(filename), strict)
 
     Package(strict::Bool=false) =
-        Package(Dict(), strict=strict)
+        Package(Dict(), strict)
 end
+
+add_resource(p::Package, r::Resource) =
+    push!(p.resources, r)
 
 get_resource(p::Package, name::String) =
     [ r for r in p.resources if r.name == name ][1]

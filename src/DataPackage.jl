@@ -22,4 +22,6 @@ include("exceptions.jl")
 include("resource.jl")
 include("package.jl")
 
+export import_table
+
 end # module

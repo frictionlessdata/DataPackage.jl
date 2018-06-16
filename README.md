@@ -27,15 +27,14 @@ Initially this package is primarily targeted and depends on [TableSchema.jl](htt
 
 Please visit [our wiki](https://github.com/frictionlessdata/datapackage-jl/wiki) for a list of related projects that we are tracking, and suggest use cases there or as enhancement [issues](https://github.com/frictionlessdata/datapackage-jl/issues).
 
-See `examples` folder and unit tests in [runtests.jl](test/runtests.jl) for current usage, e.g.:
+Install *tableschema-jl* first:
 
-```
-$ julia examples/basic.jl
-```
+`julia -e 'Pkg.clone("https://github.com/loleg/TableSchema.jl")'`
+
+See *examples* folder and unit tests in [runtests.jl](test/runtests.jl) for current usage, e.g.:
+
+`$ julia examples/basic.jl`
 
 Running tests:
-```
-$ julia -L ../tableschema-jl/src/TableSchema.jl -L src/DataPackage.jl test/runtests.jl
-```
 
-See [Packages](https://docs.julialang.org/en/stable/manual/packages/) doc for local installation.
+`$ julia -L src/DataPackage.jl test/runtests.jl`
