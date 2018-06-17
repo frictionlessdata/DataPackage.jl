@@ -1,7 +1,7 @@
 # Needs to be installed, e.g. via:
 #   julia -e 'Pkg.clone("git@github.com:loleg/TableSchema.jl.git")'
 using TableSchema
-import TableSchema: read, is_valid, validate
+import TableSchema: read, validate
 
 include("../src/DataPackage.jl")
 using DataPackage

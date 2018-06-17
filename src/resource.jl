@@ -29,25 +29,44 @@ mutable struct Resource
     end
 
     function Resource(path::String, strict::Bool=false, name::String=nothing)
-        if name == nothing
-            name = path.split('/')[-1]
-        end
-        t = Table(path)
-        tr = TableSchema.read(t, cast=false)
-        s = Schema()
-        TableSchema.infer(s, tr, t.headers)
+        name = isempty(name) ? path.split('/')[-1] : name
         new(
-            Dict(), strict, name, path, "tabular-data-resource", Dict(), s, []
+            Dict(), strict, name, path, "tabular-data-resource", Dict(), Schema(), []
         )
     end
 end
 
-get_table(r::Resource) = Table(r.path, r.schema)
+function fields_to_descriptor(s::Schema)
+    f_dict = []
+    for f in s.fields
+        push!(f_dict, Dict(
+            "name" => f.name,
+            "type" => f.typed
+        ))
+    end
+    Dict("fields" => f_dict)
+end
+
+function get_table(r::Resource)
+    if TableSchema.is_empty(r.schema)
+        s = Schema()
+        t = Table(r.path)
+        tr = TableSchema.read(t, cast=false)
+        TableSchema.infer(s, tr, t.headers)
+        s.errors = []
+        s.descriptor = fields_to_descriptor(s)
+        TableSchema.validate(s, r.strict)
+        r.schema = t.schema = s
+        t
+    else
+        Table(r.path, r.schema)
+    end
+end
 
 function read(r::Resource)
     if r.profile == "tabular-data-resource"
         t = get_table(r)
-        TableSchema.read(t)
+        TableSchema.read(t, cast=false)
     else
         throw(ErrorException("Not supported"))
     end
