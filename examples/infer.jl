@@ -7,7 +7,7 @@ import DataPackage: add_resource
 
 # Initialise a resource from a CSV file
 # Source: https://opendata.swiss/en/dataset/kennzahlen-der-schweizer-pflegeheime
-res = Resource("data/health/hopitaux_ch_2016_Sample_fr.csv", false, "hopitaux")
+res = Resource("data/health/hopitaux_ch_2016_Sample_fr.csv", strict=false, name="hopitaux")
 
 # Add this resource to a blank data package
 p = Package()

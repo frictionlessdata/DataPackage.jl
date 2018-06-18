@@ -13,9 +13,9 @@ mutable struct Resource
     schema::Schema
     errors::Array{PackageError}
 
-    function Resource(d::Dict, strict::Bool=false)
+    function Resource(d::Dict ; strict::Bool=false)
         schema = haskey(d, "schema") ?
-            Schema(d["schema"], strict) : nothing
+            Schema(d["schema"], strict) : Schema()
         name = haskey(d, "name") ?
             d["name"] : nothing
         path = haskey(d, "path") ?
@@ -23,12 +23,12 @@ mutable struct Resource
         profile = haskey(d, "profile") ?
             d["profile"] : nothing
         dialect = haskey(d, "dialect") ?
-            d["dialect"] : nothing
+            d["dialect"] : Dict()
 
         new(d, strict, name, path, profile, dialect, schema, [])
     end
 
-    function Resource(path::String, strict::Bool=false, name::String=nothing)
+    function Resource(path::String ; strict::Bool=false, name::String=nothing)
         name = isempty(name) ? path.split('/')[-1] : name
         new(
             Dict(), strict, name, path, "tabular-data-resource", Dict(), Schema(), []
@@ -48,14 +48,14 @@ function fields_to_descriptor(s::Schema)
 end
 
 function get_table(r::Resource)
-    if TableSchema.is_empty(r.schema)
+    if is_empty(r.schema)
         s = Schema()
         t = Table(r.path)
-        tr = TableSchema.read(t, cast=false)
-        TableSchema.infer(s, tr, t.headers)
+        tr = read(t, cast=false)
+        infer(s, tr, t.headers)
         s.errors = []
         s.descriptor = fields_to_descriptor(s)
-        TableSchema.validate(s, r.strict)
+        validate(s, r.strict)
         r.schema = t.schema = s
         t
     else
@@ -66,7 +66,7 @@ end
 function read(r::Resource)
     if r.profile == "tabular-data-resource"
         t = get_table(r)
-        TableSchema.read(t, cast=false)
+        read(t, cast=false)
     else
         throw(ErrorException("Not supported"))
     end
