@@ -17,6 +17,9 @@ using JSON
 
 using TableSchema
 import TableSchema: Schema
+import TableSchema: read, infer, validate, is_empty
+
+import HTTP: request
 
 include("exceptions.jl")
 include("resource.jl")

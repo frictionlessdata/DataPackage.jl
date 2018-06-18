@@ -23,13 +23,25 @@ Initially this package is primarily targeted and depends on [TableSchema.jl](htt
 
 :construction: This package is pre-release and under heavy development. Please visit the [issues page](https://github.com/frictionlessdata/datapackage-jl/issues) to contribute and make suggestions. For questions that need to a real time response, reach out via [Gitter](https://gitter.im/frictionlessdata/chat). Thanks! :construction:
 
-# Usage
-
 Please visit [our wiki](https://github.com/frictionlessdata/datapackage-jl/wiki) for a list of related projects that we are tracking, and suggest use cases there or as enhancement [issues](https://github.com/frictionlessdata/datapackage-jl/issues).
 
-Install *tableschema-jl* first:
+# Usage
 
-`julia -e 'Pkg.clone("https://github.com/loleg/TableSchema.jl")'`
+Install *tableschema-jl* (temporarily obtained from GitHub until released):
+
+`$ julia -e 'Pkg.clone("https://github.com/frictionlessdata/tableschema-jl")'`
+
+You may also need to explicitly install *HTTP*:
+
+`$ julia -e 'Pkg.add("HTTP")'`
+
+Update to the latest version with:
+
+`$ julia -e 'Pkg.update("TableSchema")'`
+
+Clone this repository and enter it:
+
+`$ git clone https://github.com/frictionlessdata/datapackage-jl && cd datapackage-jl`
 
 See *examples* folder and unit tests in [runtests.jl](test/runtests.jl) for current usage, e.g.:
 

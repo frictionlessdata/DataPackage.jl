@@ -13,7 +13,7 @@ mutable struct Package
         resources = []
         if haskey(d, "resources")
             for r in d["resources"]
-                t = Resource(r, strict)
+                t = Resource(r, strict=strict)
                 push!(resources, t)
             end
         end
