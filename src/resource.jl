@@ -15,7 +15,7 @@ mutable struct Resource
 
     function Resource(d::Dict ; strict::Bool=false)
         schema = haskey(d, "schema") ?
-            Schema(d["schema"], strict) : nothing
+            Schema(d["schema"], strict) : Schema()
         name = haskey(d, "name") ?
             d["name"] : nothing
         path = haskey(d, "path") ?
@@ -23,7 +23,7 @@ mutable struct Resource
         profile = haskey(d, "profile") ?
             d["profile"] : nothing
         dialect = haskey(d, "dialect") ?
-            d["dialect"] : nothing
+            d["dialect"] : Dict()
 
         new(d, strict, name, path, profile, dialect, schema, [])
     end

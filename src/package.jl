@@ -13,18 +13,31 @@ mutable struct Package
         resources = []
         if haskey(d, "resources")
             for r in d["resources"]
-                t = Resource(r, strict=strict)
-                push!(resources, t)
+                if !isempty(r)
+                    t = Resource(r, strict=strict)
+                    push!(resources, t)
+                end
             end
         end
         new(d, strict, [], resources)
     end
 
     Package(filename::String, strict::Bool=false) =
-        Package(JSON.parsefile(filename), strict)
+        Package(fetch_json(filename), strict)
 
     Package(strict::Bool=false) =
         Package(Dict(), strict)
+end
+
+function fetch_json(filename::String)
+    if match(r"^https?://", filename) !== nothing
+        req = request("GET", filename)
+        j = JSON.parse(req.body)
+    else
+        j = JSON.parsefile(filename)
+    end
+    isempty(j) && println("JSON could not be loaded")
+    j
 end
 
 add_resource(p::Package, r::Resource) =
