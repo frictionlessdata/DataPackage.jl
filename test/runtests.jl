@@ -1,5 +1,5 @@
 using DataPackage
-using Base.Test
+using Test
 
 import DataPackage: get_resource, read
 

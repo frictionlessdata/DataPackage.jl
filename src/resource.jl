@@ -47,7 +47,10 @@ function fields_to_descriptor(s::Schema)
     Dict("fields" => f_dict)
 end
 
-function get_table(r::Resource)
+function get_table(r::Resource, basepath::String="")
+    if !isempty(basepath)
+        r.path = joinpath(basepath, r.path)
+    end
     if is_empty(r.schema)
         s = Schema()
         t = Table(r.path)
@@ -63,10 +66,15 @@ function get_table(r::Resource)
     end
 end
 
-function read(r::Resource)
+function read(r::Resource, basepath::String="")
     if r.profile == "tabular-data-resource"
-        t = get_table(r)
-        read(t, cast=false)
+        t = get_table(r, basepath)
+        if typeof(t) == Table
+            read(t, cast=false)
+        else
+            @warn t
+            throw(ErrorException("Could not read tabular data"))
+        end
     else
         throw(ErrorException("Not supported"))
     end
