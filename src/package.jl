@@ -1,6 +1,6 @@
 """
 Package generic data structure
-https://github.com/frictionlessdata/datapackage-jl#package
+https://github.com/frictionlessdata/DataPackage.jl#package
 """
 
 mutable struct Package
@@ -32,11 +32,11 @@ end
 function fetch_json(filename::String)
     if match(r"^https?://", filename) !== nothing
         req = request("GET", filename)
-        j = JSON.parse(req.body)
+        j = JSON.parse(String(req.body))
     else
         j = JSON.parsefile(filename)
     end
-    isempty(j) && println("JSON could not be loaded")
+    isempty(j) && @warn "JSON could not be loaded"
     j
 end
 

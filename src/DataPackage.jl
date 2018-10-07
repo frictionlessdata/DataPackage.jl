@@ -1,6 +1,6 @@
 """
 DataPackage module
-https://github.com/frictionlessdata/datapackage-jl
+https://github.com/frictionlessdata/DataPackage.jl
 """
 module DataPackage
 

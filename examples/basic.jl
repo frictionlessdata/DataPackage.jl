@@ -1,5 +1,5 @@
 # Needs to be installed, e.g. via:
-#   julia -e 'Pkg.clone("git@github.com:loleg/TableSchema.jl.git")'
+#   julia -e 'Pkg.clone("git@github.com:frictionlessdata/TableSchema.jl.git")'
 using TableSchema
 import TableSchema: read, validate
 

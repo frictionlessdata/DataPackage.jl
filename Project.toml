@@ -1,0 +1,10 @@
+name = "DataPackage"
+uuid = "814f4230-c490-11e8-384f-3bbe155e27f5"
+authors = ["Oleg Lavrovsky <oleg@datalets.ch>"]
+version = "0.1.0"
+
+[deps]
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+TableSchema = "ffdd8e40-dc34-5919-9e87-c8f182d9ad02"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

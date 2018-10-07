@@ -3,7 +3,7 @@
     "resources": [
         {
             "name": "cities",
-            "path": "data/cities/cities.csv",
+            "path": "cities.csv",
             "profile": "tabular-data-resource",
             "dialect": {
                 "quoteChar": "|"
