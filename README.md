@@ -29,7 +29,7 @@ Please visit [our wiki](https://github.com/frictionlessdata/datapackage-jl/wiki)
 
 Install *tableschema-jl* (temporarily obtained from GitHub until released):
 
-`$ julia -e 'Pkg.clone("https://github.com/frictionlessdata/tableschema-jl")'`
+`$ julia -e 'Pkg.clone("https://github.com/frictionlessdata/tableschema-jl", "TableSchema")'`
 
 You may also need to explicitly install *HTTP*:
 
