@@ -1,6 +1,6 @@
 """
 Package generic data structure
-https://github.com/frictionlessdata/datapackage-jl#package
+https://github.com/frictionlessdata/DataPackage.jl#package
 """
 
 mutable struct Package

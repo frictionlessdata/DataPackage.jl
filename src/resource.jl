@@ -1,6 +1,6 @@
 """
 Resource generic data structure
-https://github.com/frictionlessdata/datapackage-jl#resource
+https://github.com/frictionlessdata/DataPackage.jl#resource
 """
 
 mutable struct Resource

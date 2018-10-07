@@ -6,7 +6,7 @@ using DataPackage
 import DataPackage: Resource, add_resource, get_table, read
 
 # Initialise a resource from a remote file
-REMOTE_URL = "https://raw.githubusercontent.com/frictionlessdata/tableschema-jl/master/data/data_simple.csv"
+REMOTE_URL = "https://raw.githubusercontent.com/frictionlessdata/TableSchema.jl/master/data/data_simple.csv"
 res = Resource(REMOTE_URL, strict=false, name="sample")
 
 # Add this resource to a blank data package

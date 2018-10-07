@@ -19,9 +19,9 @@
     end
 
     @testset "Read remote data package" begin
-        p = Package("https://raw.githubusercontent.com/frictionlessdata/datapackage-jl/master/data/cities/datapackage.json")
+        p = Package("https://raw.githubusercontent.com/frictionlessdata/DataPackage.jl/master/data/cities/datapackage.json")
         r = get_resource(p, "cities")
-        r.path = "https://raw.githubusercontent.com/frictionlessdata/datapackage-jl/master/data/cities/cities.csv"
+        r.path = "https://raw.githubusercontent.com/frictionlessdata/DataPackage.jl/master/data/cities/cities.csv"
         data = read(r)
         @test data[2,1] == "London"
     end

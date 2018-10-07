@@ -1,6 +1,6 @@
 """
 Common exceptions
-https://github.com/frictionlessdata/datapackage-jl#exceptions
+https://github.com/frictionlessdata/DataPackage.jl#exceptions
 """
 
 struct PackageError <: Exception
