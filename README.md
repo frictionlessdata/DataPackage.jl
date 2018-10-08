@@ -31,7 +31,7 @@ Install the **[TableSchema](https://github.com/frictionlessdata/TableSchema.jl)*
 
 Clone this repository and enter it:
 
-`$ git clone https://github.com/frictionlessdata/DataPackage.jl && cd datapackage-jl`
+`$ git clone https://github.com/frictionlessdata/DataPackage.jl && cd DataPackage.jl`
 
 See *examples* folder and unit tests in [runtests.jl](test/runtests.jl) for current usage, e.g.:
 
