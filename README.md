@@ -4,8 +4,9 @@
 [![Coveralls](http://img.shields.io/coveralls/frictionlessdata/DataPackage.jl.svg?branch=master)](https://coveralls.io/r/frictionlessdata/DataPackage.jl?branch=master)
 [![SemVer](https://img.shields.io/badge/versions-SemVer-brightgreen.svg)](http://semver.org/)
 [![Gitter](https://img.shields.io/gitter/room/frictionlessdata/chat.svg)](https://gitter.im/frictionlessdata/chat)
-
-[![Julia Pkg](http://pkg.julialang.org/badges/JSON_0.6.svg)](http://pkg.julialang.org/?pkg=datapackage&ver=0.6)
+[![Release](http://pkg.julialang.org/badges/JSON_0.6.svg)](http://pkg.julialang.org/?pkg=datapackage&ver=0.6)
+[![Codebase](https://img.shields.io/badge/codebase-github-brightgreen)](https://github.com/frictionlessdata/datapackage-jl)
+[![Support](https://img.shields.io/badge/support-discord-brightgreen)](https://discordapp.com/invite/Sewv6av)
 
 A library for working with [Data Packages](http://specs.frictionlessdata.io/data-package/) in Julia.
 
